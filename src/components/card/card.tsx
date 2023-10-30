@@ -8,7 +8,7 @@ type CardProps = {
 };
 
 const Card = ({ film }: CardProps) => {
-  const [activeFilm, setActiveFilm] = useState(false);
+  const [, setActiveFilm] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const hoverTimeout: any = useRef(null);
 

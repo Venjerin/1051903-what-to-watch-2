@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { State } from '../../store/api-actions';
 
 const Player = () => {
-  const id = (useParams().id || '') as string;
+  const id = useParams().id as string;
   const selectedFilm:Film = useSelector((state: State) => state.selectedFilm)
 
   function formatTime(minutes: number) {

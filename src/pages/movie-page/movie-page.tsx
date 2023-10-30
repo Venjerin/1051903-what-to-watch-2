@@ -16,6 +16,7 @@ import {
 } from '../../store/api-actions';
 import PageNotFound from '../404-not-found/404-not-found';
 import Logo from '../../components/logo/logo';
+import React from 'react';
 
 type Films = {
   id: string;
@@ -31,8 +32,8 @@ type User = {
   avatarUrl: string;
 };
 
-const MoviePage = () => {
-  const id = (useParams().id || '') as string;
+const MoviePage = React.memo(() => {
+  const id = useParams().id as string;
   const films: Films[] = useSelector((state: State) => state.previewFilms);
 
   if (id !== undefined || films.find((film) => film.id === id)) {
@@ -192,6 +193,6 @@ const MoviePage = () => {
   } else {
     return <PageNotFound />;
   }
-};
+});
 
 export default MoviePage;

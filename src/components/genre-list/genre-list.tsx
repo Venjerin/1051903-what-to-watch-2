@@ -14,7 +14,7 @@ type GenreListProps = {
   films: TFilm[];
 };
 
-const GenreList = ({ genres, selectFilmsByGenre, visibleFilms, setVisibleFilms, films }: GenreListProps) => {
+const GenreList = ({ genres, selectFilmsByGenre, visibleFilms, setVisibleFilms,}: GenreListProps) => {
   const dispatch = useDispatch();
   const selectedGenre = useSelector((state: any) => state.selectedGenre);
   const previewFilms = store.getState().previewFilms;

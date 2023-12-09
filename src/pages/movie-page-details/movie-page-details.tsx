@@ -1,7 +1,7 @@
-import { TFilm } from '../../mocks/films';
+import { Film } from '../../mocks/films';
 
 type MoviePageDetailsProps = {
-  selectedFilm: TFilm;
+  selectedFilm: Film;
 };
 
 const MoviePageDetails = ({ selectedFilm }: MoviePageDetailsProps) => (
@@ -10,7 +10,7 @@ const MoviePageDetails = ({ selectedFilm }: MoviePageDetailsProps) => (
       <p className="film-card__details-item">
         <strong className="film-card__details-name">Director</strong>
         <span className="film-card__details-value">
-          {selectedFilm.overviewDetails.director}
+          {selectedFilm.director}
         </span>
       </p>
       <p className="film-card__details-item">
@@ -36,7 +36,7 @@ const MoviePageDetails = ({ selectedFilm }: MoviePageDetailsProps) => (
       <p className="film-card__details-item">
         <strong className="film-card__details-name">Run Time</strong>
         <span className="film-card__details-value">
-          {selectedFilm.overviewDetails.duration}m
+          {selectedFilm.runTime}m
         </span>
       </p>
       <p className="film-card__details-item">
@@ -45,7 +45,7 @@ const MoviePageDetails = ({ selectedFilm }: MoviePageDetailsProps) => (
       </p>
       <p className="film-card__details-item">
         <strong className="film-card__details-name">Released</strong>
-        <span className="film-card__details-value">{selectedFilm.year}</span>
+        <span className="film-card__details-value">{selectedFilm.released}</span>
       </p>
     </div>
   </div>

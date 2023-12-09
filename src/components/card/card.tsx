@@ -1,15 +1,15 @@
-import { useState, useRef } from 'react';
-import { TFilm } from '../../mocks/films';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import VideoPlayer from '../video-player/video-player';
+import { MoreLike } from '../more-like-this/more-like-this';
 
 type CardProps = {
-  film: TFilm;
+  film: MoreLike;
 };
 
 const Card = ({ film }: CardProps) => {
-  const [activeFilm, setActiveFilm] = useState(false);
+  const [, setActiveFilm] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const hoverTimeout: any = useRef(null);
 
@@ -42,15 +42,15 @@ const Card = ({ film }: CardProps) => {
           <>
             <div className="small-film-card__image">
               <img
-                src={'img/fantastic-beasts-the-crimes-of-grindelwald.jpg'}
-                alt={film.filmName}
+                src={film.previewImage}
+                alt={film.name}
                 width="280"
                 height="175"
               />
             </div>
             <h3 className="small-film-card__title">
               <a className="small-film-card__link" href="film-page.html">
-                {film.filmName}
+                {film.name}
               </a>
             </h3>
           </>

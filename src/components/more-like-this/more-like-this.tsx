@@ -1,37 +1,51 @@
-import { TFilm } from '../../mocks/films';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
-type MoreLikeThisProps = {
-  films: TFilm[];
-  filmGenre: string;
+export type MoreLike = {
+  id: string;
+  name: string;
+  previewImage: string;
+  previewVideoLink: string;
+  genre: string;
 };
 
-const MoreLikeThis = ({ films, filmGenre }: MoreLikeThisProps) => {
-  const movieList = films.filter((film) => film.genre === filmGenre);
-  return (
-    <section className="catalog catalog--like-this">
-      <h2 className="catalog__title">More like this</h2>
+type MoreLikeThisProps = {
+  films: MoreLike[];
+};
 
-      <div className="catalog__films-list">
-        {movieList.map((film) => (
-          <article className="small-film-card catalog__films-card" key={film.filmName}>
+const MoreLikeThis = ({ films }: MoreLikeThisProps) => (
+  <section className="catalog catalog--like-this">
+    <h2 className="catalog__title">More like this</h2>
+    <div className="catalog__films-list">
+      {films.map((film) => (
+        <Link
+          key={film.id}
+          to={AppRoute.Film.replace(':id', `${film.id}`)}
+          style={{ width: '100%', color: '#dfcf77' }}
+        >
+          <article
+            className="small-film-card catalog__films-card"
+            key={film.name}
+          >
             <div className="small-film-card__image">
               <img
-                src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-                alt="Fantastic Beasts: The Crimes of Grindelwald"
+                src={film.previewImage}
+                alt={film.name}
                 width="280"
                 height="175"
+                style={{ maxWidth: '100%' }}
               />
             </div>
             <h3 className="small-film-card__title">
               <a className="small-film-card__link" href="film-page.html">
-                {film.filmName}
+                {film.name}
               </a>
             </h3>
           </article>
-        ))}
-      </div>
-    </section>
-  );
-};
+        </Link>
+      ))}
+    </div>
+  </section>
+);
 
 export default MoreLikeThis;

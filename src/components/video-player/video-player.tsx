@@ -1,10 +1,10 @@
-import { TFilm } from '../../mocks/films';
+import { MoreLike } from '../more-like-this/more-like-this';
 
 type VideoPlayerProps = {
-  film: TFilm;
+  film: MoreLike;
 };
 
 const VideoPlayer = ({ film }: VideoPlayerProps) => (
-  <video src={film.overviewDetails.src} autoPlay muted width="280" height="175" />
+  <video src={film.previewVideoLink} autoPlay muted width="280" height="175" />
 );
 export default VideoPlayer;
